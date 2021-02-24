@@ -1,5 +1,9 @@
 [ETAPES 1:]
 
+[Docker dans goinfre]
+
+https://github.com/alexandregv/42toolbox/blob/master/init_docker.sh
+
 [install minikube]
 
 1) install virtual box (msc)
