@@ -2,7 +2,6 @@ FROM alpine:latest
 
 WORKDIR /app
 
-COPY nginx.conf /etc/nginx/nginx.conf
 
 RUN apk update
 RUN apk add \
@@ -30,6 +29,7 @@ RUN apk add \
         php7-phar \
         php7-posix \
         php7-session \
+        php-cgi \
         php7-soap \
         php7-xml \
         php7-zip \
@@ -39,7 +39,12 @@ RUN mkdir /run/nginx
 RUN wget https://files.phpmyadmin.net/phpMyAdmin/5.0.4/phpMyAdmin-5.0.4-all-languages.tar.gz
 RUN tar xvfz phpMyAdmin-5.0.4-all-languages.tar.gz
 RUN mv phpMyAdmin-5.0.4-all-languages phpmyadmin
-VOLUME [ “/sys/fs/cgroup” ]
+RUN rm -rf phpMyAdmin-5.0.4-all-languages
+
+COPY nginx.conf /etc/nginx/nginx.conf
+COPY nginx.conf /etc/nginx/conf.d/nginx.conf
+
 EXPOSE 5000
 
-CMD nginx && php-fpm7 && tail -f /var/log/nginx/access.log
+
+CMD php -S 0.0.0.0:5000 -t phpmyadmin/ 
