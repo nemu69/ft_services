@@ -1,10 +1,12 @@
-FROM alpine:latest
+FROM alpine:3.12.3
 
 WORKDIR /app
 
 RUN apk update
 RUN apk add \
         nginx \
+        openrc \
+        bash \
         php7 \
         php7-bcmath \
         php7-ctype \
@@ -31,11 +33,16 @@ RUN apk add \
         php7-zip \
 		php7-mysqli
 
+
 RUN mkdir /run/nginx
-RUN wget http://wordpress.org/latest.tar.gz
-RUN tar -xzvf latest.tar.gz
-RUN rm latest.tar.gz
+RUN wget -q https://wordpress.org/latest.tar.gz &&\
+	tar xvf latest.tar.gz
+# RUN rm latest.tar.gz
 
-EXPOSE 5000
+COPY nginx.conf /etc/nginx/nginx.conf
+COPY nginx.conf /etc/nginx/conf.d/nginx.conf
+ADD ./startup.sh .
 
-CMD nginx && php-fpm7 && tail -f /var/log/nginx/access.log
+EXPOSE 5050
+# CMD ["/bin/sh", "-c", "/usr/sbin/php-fpm7; exec nginx -g 'daemon off;';"]
+ENTRYPOINT ["sh", "startup.sh"]

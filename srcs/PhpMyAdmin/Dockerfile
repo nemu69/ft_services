@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM alpine:3.12.3
 
 WORKDIR /app
 
@@ -45,6 +45,5 @@ COPY nginx.conf /etc/nginx/nginx.conf
 COPY nginx.conf /etc/nginx/conf.d/nginx.conf
 
 EXPOSE 5000
-
 
 CMD php -S 0.0.0.0:5000 -t phpmyadmin/ 
