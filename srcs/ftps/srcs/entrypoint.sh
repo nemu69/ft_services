@@ -1,6 +1,10 @@
-mv vsftpd.conf /etc/vsftpd
-mv vsftpd.pem /etc/vsftpd
+mv vsftpd.conf /etc/vsftpd/
+mv vsftpd.pem /etc/vsftpd/
+mv vsftpd.cert /etc/vsftpd/
 
-rc-service vsftpd restart
+adduser -D admin
+echo "admin:admin" | chpasswd
 
-sleep infinity
+mkdir /home/admin/test
+
+vsftpd /etc/vsftpd/vsftpd.conf
