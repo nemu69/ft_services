@@ -43,7 +43,9 @@ RUN rm -rf phpMyAdmin-5.0.4-all-languages
 
 COPY srcs/nginx.conf /etc/nginx/nginx.conf
 COPY srcs/nginx.conf /etc/nginx/conf.d/nginx.conf
+ADD ./srcs/startup.sh .
+RUN	chmod 777 startup.sh
 
 EXPOSE 5000
 
-CMD php -S 0.0.0.0:5000 -t phpmyadmin/ 
+CMD ./startup.sh
