@@ -4,5 +4,6 @@ kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.9.5/manife
 kubectl create secret generic -n metallb-system memberlist --from-literal=secretkey="$(openssl rand -base64 128)"
 docker build -t nginx ./services/nginx
 docker build -t phpmyadmin ./services/PhpMyAdmin
+docker build -t wordpress ./services/Wordpress
 minikube addons enable dashboard
 minikube dashboard

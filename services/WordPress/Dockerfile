@@ -39,12 +39,9 @@ RUN wget -q https://wordpress.org/latest.tar.gz &&\
 	tar xvf latest.tar.gz
 # RUN rm latest.tar.gz
 
-COPY nginx.conf /etc/nginx/nginx.conf
-COPY nginx.conf /etc/nginx/conf.d/nginx.conf
-ADD ./startup.sh .
+COPY srcs/nginx.conf /etc/nginx/nginx.conf
+COPY srcs/nginx.conf /etc/nginx/conf.d/nginx.conf
 
-EXPOSE 5050
-# CMD ["/bin/sh", "-c", "/usr/sbin/php-fpm7; exec nginx -g 'daemon off;';"]
 ADD ./srcs/startup.sh .
 RUN	chmod 777 startup.sh
 
