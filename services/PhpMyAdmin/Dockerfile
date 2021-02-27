@@ -2,7 +2,6 @@ FROM alpine:3.12.3
 
 WORKDIR /app
 
-
 RUN apk update
 RUN apk add \
         nginx \
