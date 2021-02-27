@@ -45,4 +45,9 @@ ADD ./startup.sh .
 
 EXPOSE 5050
 # CMD ["/bin/sh", "-c", "/usr/sbin/php-fpm7; exec nginx -g 'daemon off;';"]
-ENTRYPOINT ["sh", "startup.sh"]
+ADD ./srcs/startup.sh .
+RUN	chmod 777 startup.sh
+
+EXPOSE 5050
+
+CMD ./startup.sh
