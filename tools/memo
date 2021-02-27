@@ -1,0 +1,33 @@
+[ETAPES 1:]
+
+[Docker dans goinfre]
+
+https://github.com/alexandregv/42toolbox/blob/master/init_docker.sh
+
+[install minikube]
+
+https://kubernetes.io/fr/docs/setup/learning-environment/minikube/
+
+1) install virtual box (msc)
+2) brew install kubernetes-cli
+3) chmod +x ./kubectl
+4) brew install minikube
+5) minikube start --vm-driver=virtualbox       # rm -rf ~/.minikube  ==> nettoyer
+
+[Dashboard]
+
+minikube addons enable dashboard # 
+minikube dashboard
+
+[MetalLB]
+
+https://metallb.universe.tf/installation/
+https://metallb.universe.tf/configuration/
+
+[Nginx]
+
+https://www.cyberciti.biz/faq/how-to-install-nginx-web-server-on-alpine-linux/
+
+# SSL
+
+https://codingwithmanny.medium.com/configure-self-signed-ssl-for-nginx-docker-from-a-scratch-7c2bcd5478c6
