@@ -44,6 +44,7 @@ COPY srcs/nginx.conf /etc/nginx/conf.d/nginx.conf
 
 ADD ./srcs/startup.sh .
 RUN	chmod 777 startup.sh
+ADD	srcs/wp-config.php /app/wordpress/.
 
 EXPOSE 5050
 

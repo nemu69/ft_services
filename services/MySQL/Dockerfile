@@ -9,7 +9,7 @@ RUN apk add \
         openrc \
         bash
 
-ADD startup.sh .
+ADD srcs/startup.sh .
 RUN chmod 0755 startup.sh
 RUN mkdir /run/mysqld
 COPY srcs/my.cnf /etc/mysql/my.cnf
