@@ -4,6 +4,7 @@ WORKDIR /app
 
 RUN apk update
 RUN apk add \
+        wget \
         nginx \
         openrc \
         bash \
@@ -41,7 +42,6 @@ RUN mv phpMyAdmin-5.0.4-all-languages phpmyadmin
 RUN rm -rf phpMyAdmin-5.0.4-all-languages
 
 COPY srcs/nginx.conf /etc/nginx/nginx.conf
-COPY srcs/nginx.conf /etc/nginx/conf.d/nginx.conf
 ADD ./srcs/startup.sh .
 RUN	chmod 777 startup.sh
 
