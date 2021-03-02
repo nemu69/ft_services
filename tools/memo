@@ -28,6 +28,16 @@ https://metallb.universe.tf/configuration/
 
 https://www.cyberciti.biz/faq/how-to-install-nginx-web-server-on-alpine-linux/
 
-# SSL
+[SSL]
 
 https://codingwithmanny.medium.com/configure-self-signed-ssl-for-nginx-docker-from-a-scratch-7c2bcd5478c6
+
+[YAML]
+
+https://www.youtube.com/watch?v=qmDzcu5uY1I [EXPLICATIONS]
+
+https://www.serverlab.ca/tutorials/containers/kubernetes/deploy-phpmyadmin-to-kubernetes-to-manage-mysql-pods/   [PHPMYADMIN]
+
+https://kubernetes.io/fr/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/ [LIVENESS]
+
+https://www.serverlab.ca/tutorials/containers/kubernetes/how-to-deploy-mysql-server-5-7-to-kubernetes/ [MYSQL]

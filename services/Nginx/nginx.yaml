@@ -21,7 +21,6 @@ spec:
       protocol: TCP
       port: 22
       targetPort: 22
-
 ---
 apiVersion: apps/v1
 kind: Deployment

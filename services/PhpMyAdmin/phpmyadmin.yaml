@@ -13,9 +13,7 @@ spec:
     port: 5000
     protocol: TCP
     targetPort: 5000
-
 ---
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -27,6 +25,8 @@ spec:
   selector:
     matchLabels:
       app: phpmyadmin
+  strategy:
+   type: Recreate
   template:
     metadata:
       labels:
@@ -38,12 +38,6 @@ spec:
         imagePullPolicy: Never
         ports:
         - containerPort: 5000
-        livenessProbe:
-          httpGet:
-            path: /
-            port: 5000
-          initialDelaySeconds: 15 #Kubelet qu'il devrait attendre 5 secondes avant d'effectuer la première probe
-          periodSeconds: 5 #Kubelet doit effectuer un check de liveness toutes les 5 secondes
         env:
         - name: PMA_HOST
           value: mysql

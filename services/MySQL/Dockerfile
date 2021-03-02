@@ -10,9 +10,9 @@ RUN apk add \
         bash
 
 ADD srcs/startup.sh .
-RUN chmod 0755 startup.sh
+RUN chmod 777 startup.sh
 RUN mkdir /run/mysqld
 COPY srcs/my.cnf /etc/mysql/my.cnf
 
 EXPOSE 3306
-ENTRYPOINT ["sh", "startup.sh"]
+CMD ./startup.sh
