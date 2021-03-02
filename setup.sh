@@ -1,4 +1,4 @@
-minikube start --vm-driver=virtualbox
+minikube start --vm-driver=virtualbox --memory=3g
 eval $(minikube docker-env)
 minikube addons enable metrics-server
 minikube addons enable dashboard
@@ -8,14 +8,7 @@ kubectl create secret generic -n metallb-system memberlist --from-literal=secret
 docker build -t nginx-image ./services/Nginx
 docker build -t mysql-image ./services/MySQL
 docker build -t phpmyadmin-image ./services/PhpMyAdmin
-docker build -t wordpress-image ./services/Wordpress
+docker build -t wordpress-image ./services/WordPress
 docker build -t ftps-image ./services/Ftps
-kubectl apply -f metallb.yaml
-kubectl apply -f ./services/Nginx/nginx.yaml
-kubectl apply -f ./services/MySQL/mysql.yaml
-kubectl apply -f ./services/PhpMyAdmin/phpmyadmin.yaml
-kubectl apply -f ./services/Wordpress/wordpress.yaml
-#kubectl apply -f services/influxdb/influxdb.yaml
-#kubectl apply -f services/grafana/grafana.yaml
-kubectl apply -f services/Ftps/ftps.yaml
+kubectl apply -k .
 minikube dashboard
