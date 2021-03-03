@@ -4,6 +4,8 @@ metadata:
   name: ftps
   labels:
     app: ftps
+  annotations:
+    metallb.universe.tf/allow-shared-ip: shared
 spec:
   type: LoadBalancer
   selector:

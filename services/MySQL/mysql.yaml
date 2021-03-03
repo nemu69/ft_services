@@ -17,6 +17,8 @@ metadata:
   name: mysql
   labels:
     app: mysql
+  annotations:
+    metallb.universe.tf/allow-shared-ip: shared
 spec:
   selector:
     app: mysql

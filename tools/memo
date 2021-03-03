@@ -23,10 +23,12 @@ minikube dashboard
 
 https://metallb.universe.tf/installation/
 https://metallb.universe.tf/configuration/
+https://metallb.universe.tf/usage/ [1 seule IP]
 
 [Nginx]
 
 https://www.cyberciti.biz/faq/how-to-install-nginx-web-server-on-alpine-linux/
+https://stackoverflow.com/questions/55027582/nginx-http-not-redirecting-to-https-400-bad-request-the-plain-http-request-was [erreur https 443]
 
 [SSL]
 

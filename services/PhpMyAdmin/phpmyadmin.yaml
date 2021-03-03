@@ -4,6 +4,8 @@ metadata:
   name: phpmyadmin
   labels:
     app: phpmyadmin
+  annotations:
+    metallb.universe.tf/allow-shared-ip: shared
 spec:
   type: LoadBalancer
   selector:

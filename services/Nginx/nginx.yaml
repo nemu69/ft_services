@@ -4,6 +4,8 @@ metadata:
   name: nginx
   labels:
     app: nginx
+  annotations:
+    metallb.universe.tf/allow-shared-ip: shared
 spec:
   type: LoadBalancer
   selector:
