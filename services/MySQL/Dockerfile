@@ -7,7 +7,8 @@ RUN apk add \
         mysql \
         mysql-client \
         openrc \
-        bash
+        bash \
+        -no-cache
 
 ADD srcs/startup.sh .
 RUN chmod 777 startup.sh

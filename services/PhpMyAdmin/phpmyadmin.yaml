@@ -49,3 +49,4 @@ spec:
           value: root
         - name: MYSQL_ROOT_PASSWORD
           value: password
+            

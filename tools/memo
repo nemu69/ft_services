@@ -29,6 +29,7 @@ https://metallb.universe.tf/usage/ [1 seule IP]
 
 https://www.cyberciti.biz/faq/how-to-install-nginx-web-server-on-alpine-linux/
 https://stackoverflow.com/questions/55027582/nginx-http-not-redirecting-to-https-400-bad-request-the-plain-http-request-was [erreur https 443]
+https://www.linode.com/docs/guides/use-nginx-reverse-proxy/ [reverse proxy]
 
 [SSL]
 
@@ -43,6 +44,8 @@ https://www.serverlab.ca/tutorials/containers/kubernetes/deploy-phpmyadmin-to-ku
 https://kubernetes.io/fr/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/ [LIVENESS]
 
 https://www.serverlab.ca/tutorials/containers/kubernetes/how-to-deploy-mysql-server-5-7-to-kubernetes/ [MYSQL]
+
+https://github.com/serainville/serverlab-kubernetes-templates [MYSQL + PHPMYADMIN]
 
 [PHPMYADMIN]
 
