@@ -20,4 +20,5 @@ mysql -u root -e "FLUSH PRIVILEGES;"
 #--------------------------#
 
 # Start Telegraf and sleep infinity for avoid container to stop.
-(telegraf conf &) & sleep infinite
+#(telegraf conf &) & 
+sleep infinite

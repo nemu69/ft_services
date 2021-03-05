@@ -43,3 +43,7 @@ https://www.serverlab.ca/tutorials/containers/kubernetes/deploy-phpmyadmin-to-ku
 https://kubernetes.io/fr/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/ [LIVENESS]
 
 https://www.serverlab.ca/tutorials/containers/kubernetes/how-to-deploy-mysql-server-5-7-to-kubernetes/ [MYSQL]
+
+[PHPMYADMIN]
+
+https://docs.phpmyadmin.net/fr/latest/setup.html
