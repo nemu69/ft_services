@@ -1,7 +1,5 @@
 FROM alpine:3.12.3
 
-WORKDIR /app
-
 RUN apk update
 RUN apk add \
         nginx \
@@ -34,10 +32,9 @@ RUN apk add \
 		php7-mysqli
 
 
-RUN mkdir /run/nginx
-RUN wget -q https://wordpress.org/latest.tar.gz &&\
-	tar xvf latest.tar.gz
-# RUN rm latest.tar.gz
+RUN mkdir /run/nginx /www/ && chown -R nginx:nginx /www
+RUN wget -q https://wordpress.org/latest.tar.gz
+RUN	tar xzf latest.tar.gz -C /www/
 
 COPY srcs/nginx.conf /etc/nginx/nginx.conf
 COPY srcs/nginx.conf /etc/nginx/conf.d/nginx.conf

@@ -1,7 +1,5 @@
 FROM alpine:3.12.3
 
-WORKDIR /app
-
 RUN apk update
 RUN apk add \
         wget \
@@ -38,11 +36,11 @@ RUN apk add \
 RUN mkdir /run/nginx
 RUN wget https://files.phpmyadmin.net/phpMyAdmin/5.0.4/phpMyAdmin-5.0.4-all-languages.tar.gz
 RUN tar xvfz phpMyAdmin-5.0.4-all-languages.tar.gz
-RUN mv phpMyAdmin-5.0.4-all-languages phpmyadmin
+RUN mv phpMyAdmin-5.0.4-all-languages /var/www/phpmyadmin
 RUN rm -rf phpMyAdmin-5.0.4-all-languages
 
 COPY srcs/nginx.conf /etc/nginx/nginx.conf
-COPY srcs/config.inc.php ./phpmyadmin/config.inc.php
+COPY srcs/config.inc.php /var/www/phpmyadmin/config.inc.php
 ADD ./srcs/startup.sh .
 RUN	chmod 777 startup.sh
 

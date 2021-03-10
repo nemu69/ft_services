@@ -18,13 +18,12 @@ RUN openssl req -x509 -nodes -days 365 -subj "/C=CA/ST=QC/O=Company, Inc./CN=myd
 
 # SSH
 
-RUN apk add openrc --no-cache
+RUN apk add openrc
 RUN apk add openssh
 RUN adduser -D user
 RUN echo "user:password"|chpasswd
 RUN ssh-keygen -A
 COPY ./srcs/sshd_config /etc/ssh/
-
 ADD ./srcs/startup.sh .
 RUN	chmod 777 startup.sh
 

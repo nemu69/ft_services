@@ -50,3 +50,7 @@ https://github.com/serainville/serverlab-kubernetes-templates [MYSQL + PHPMYADMI
 [PHPMYADMIN]
 
 https://docs.phpmyadmin.net/fr/latest/setup.html
+
+[MYSQL]
+
+https://techviewleo.com/how-to-install-mariadb-on-alpine-linux/

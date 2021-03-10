@@ -4,6 +4,6 @@ resources:
   - services/PhpMyAdmin/phpmyadmin.yaml
   - metallb.yaml
   - services/MySQL/mysql.yaml
-  #- grafana/grafana.yaml
-  #- influxdb/influxdb.yaml
+  #- services/grafana/grafana.yaml
+  #- services/influxdb/influxdb.yaml
   - services/Ftps/ftps.yaml

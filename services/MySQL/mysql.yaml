@@ -1,43 +1,37 @@
 apiVersion: v1
+kind: Service
+metadata:
+  name: mysql
+  labels:
+    app: mysql
+spec:
+  selector:
+    app: mysql
+  ports:
+  - name: mysql
+    port: 3306
+    protocol: TCP
+    targetPort: 3306
+  type: ClusterIP
+---
+apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: mysql-data-disk
+  name: mysql-pv-claim
+  labels:
+    app: mysql
 spec:
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
       storage: 1Gi
-
 ---
-
-apiVersion: v1
-kind: Service
-metadata:
-  name: mysql
-  labels:
-    app: mysql
-  annotations:
-    metallb.universe.tf/allow-shared-ip: shared
-spec:
-  selector:
-    app: mysql
-  ports:
-  - protocol: TCP
-    port: 3306
-    targetPort: 3306
-  type: ClusterIP
-
----
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mysql-deployment
-  labels:
-    app: mysql
+  name: mysql
 spec:
-  replicas: 1
   selector:
     matchLabels:
       app: mysql
@@ -49,31 +43,19 @@ spec:
         app: mysql
     spec:
       containers:
-        - name: mysql
-          image: mysql-image
-          imagePullPolicy: Never
-          ports:
-            - containerPort: 3306
-          volumeMounts:
-            - mountPath: "/var/lib/mysql"
-              subPath: "mysql"
-              name: mysql-data
-          env:
-            - name: MYSQL_ROOT_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: mysql-secrets
-                  key: ROOT_PASSWORD
+      - image: mysql-image
+        name: mysql
+        env:
+          # Use secret in real usage
+        - name: MYSQL_ROOT_PASSWORD
+          value: password
+        ports:
+        - containerPort: 3306
+          name: mysql
+        volumeMounts:
+        - name: mysql-persistent-storage
+          mountPath: /var/lib/mysql
       volumes:
-        - name: mysql-data
-          persistentVolumeClaim:
-            claimName: mysql-data-disk
-
----
-apiVersion: v1
-kind: Secret
-metadata:
-  name: mysql-secrets
-type: Opaque
-data:
-  ROOT_PASSWORD: c3VwZXItc2VjcmV0LXBhc3N3b3JkCg==
+      - name: mysql-persistent-storage
+        persistentVolumeClaim:
+          claimName: mysql-pv-claim
