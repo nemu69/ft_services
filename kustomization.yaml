@@ -1,9 +1,0 @@
-resources:
-  - services/Nginx/nginx.yaml
-  - services/WordPress/wordpress.yaml
-  - services/PhpMyAdmin/phpmyadmin.yaml
-  - metallb.yaml
-  - services/MySQL/mysql.yaml
-  #- services/grafana/grafana.yaml
-  #- services/influxdb/influxdb.yaml
-  - services/Ftps/ftps.yaml
